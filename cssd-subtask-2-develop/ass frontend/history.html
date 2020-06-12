@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Patient Health History</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body id="history">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="col-sm-2"></div>
+        <div class="d-inline-flex">
+            <span class="navbar-brand mr-auto" href="#">E-Health System</span>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Alerts</a>
+                </li>
+                <li class="nav-item">
+                    <a hidden id="add-data-link" class="nav-link" href="inputdata.html">Add Data</a>
+                </li>
+                <li class="nav-item active">
+                    <a id="history-link" class="nav-link" href="#">Health History</a>
+                </li>
+                <li class="nav-item">
+                    <a hidden id="sensor-link" class="nav-link" href="simulated_sensor.html">Simulated Sensor</a>
+                </li>
+            </ul>
+            <button type="button" id="logout_btn" class="btn btn-danger" style="position:absolute; right:5px; top:5px;">Logout</button>
+            <form hidden id="search-bar" class="form-inline" action="/action_page.php">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </nav>
+
+    <h3 id="patient-header" class="container justify-content-center">Select a Patient</h3>
+
+    <div id="patients-div" class="form-group container justify-content-center">
+        <select id="patient-selector" multiple class="form-control" id="sel1"></select>
+    </div>
+    
+
+
+    <div class="container justify-content-center">
+        <button hidden id="button-diff-patient" class="btn btn-primary" type="button">Back To Patients</button>
+        <button hidden id="btn-analytics" class="btn btn-primary" type="button">Visualize Data</button>
+    </div>
+
+    <div id="chart-div" class="container justify-content-center" hidden>
+        <form>
+            <div class="form-group">
+                <label for="usr">Select Health Data Type</label>
+                <select id="ht-selector" class="form-control" id="sel1">
+                    <option value=0>Beats Per Minute</option>
+                    <option value=1>Systolic Pressure</option>
+                    <option value=2>Diasystolic Pressure</option>
+                    <option value=3>Steps</option>
+                    <option value=4>Distance Travelled</option>
+                    <option value=5>Time Slept</option>
+                    <option value=6>Calories Burnt</option>
+                </select>
+                <label for="usr">Select Chart Type</label>
+                <select id="ct-selector" class="form-control" id="sel1">
+                    <option value="scatter">scatter</option>
+                    <option value="line">line</option>
+                </select>
+            </div>
+            <div for="usr">Compare Data To</div>
+            <label class="checkbox-inline"><input id="std" type="checkbox" value=""> Standard Deviation </label>
+            <label class="checkbox-inline"><input id="var" type="checkbox" value=""> Variance </label>
+            <label class="checkbox-inline"><input id="mean" type="checkbox" value=""> Mean </label>
+        </form>
+        <div class="chart-container" style="position: relative; height:50vh; width:50vw">
+            <canvas id="myChart"</canvas>
+        </div>
+    </div>
+
+    <br>
+
+    <div id="Feed" hidden class="container border bg-light rounded">
+        <div class="row border justify-content-center">
+            <div class="col">Type</div>
+            <div class="col">Value</div>
+            <div class="col">Date</div>
+        </div>
+    </div>
+
+    <div id="Feed" class="container border bg-light rounded" hidden=true>
+        <div class="row border justify-content-center">
+            <div class="col">Type</div>
+            <div class="col">Value</div>
+            <div class="col">Date</div>
+            <div id="patient-div" class="col" hidden=true>Patient</div>
+        </div>
+    </div>
+
+    <div style="position: relative">
+        <p style="position: fixed; bottom: 0; width:100%; text-align: center">Created by Cooper Gill, Maxim Sutherland and Joe Wreford</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="libraries/Chart.js"></script>
+    <script src="frontendclasses.js"></script>
+    <script src="main_mvc.js"></script>
+</body>
+
+</html>

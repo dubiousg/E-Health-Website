@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <title>Selection Page</title>
+</head>
+
+<body id="selection_page">
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="col-sm-2"></div>
+        <div class="d-inline-flex">
+            <span class="navbar-brand mr-auto" href="#">E-Health System</span>
+        </div>
+        <div class="col-sm-2"></div>
+    </nav>
+    <!--Navigation Bar End-->
+
+    <div class="container">
+
+        <h1><br>Login as a Doctor or a Patient<br><br></h1>
+
+        <!--Buttons for either logging in as a patient or a doctor-->
+        <div>
+            &nbsp;&nbsp;
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#patientModal">Login as patient</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#doctorModal">Login as doctor</button>
+        </div>
+
+        <!--Open a box with a login form for the patient-->
+        <div class="modal fade" id="patientModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login as a Patient</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <img src="images/user_avatar.jpg" class="img-circle" alt="Patient Avatar" width=100 height=100>
+                        <form id="pat_form" action="/action_page.php">
+                            <div class="form-group">
+                                <label for="uname"><b>Username</b></label>
+                                <input id="pat_uname" type="text" placeholder="Enter Username" name="uname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><b>Password&nbsp;</b></label>
+                                <input id="pat_psw" type="password" placeholder="Enter Password" name="psw" required>
+                            </div>
+                            <button type="button" class="btn btn-success" id="patient_login">Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Open a box with a login form for the doctor-->
+        <div class="modal fade" id="doctorModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Login as a Doctor</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="images/user_avatar.jpg" class="img-circle" alt="Doctor Avatar" width=100 height=100>
+                        <form id="doc_form" action="/action_page.php">
+                            <div class="form-group">
+                                <label for="uname"><b>Username</b></label>
+                                <input id="doc_uname" type="text" placeholder="Enter Username" name="uname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><b>Password&nbsp;</b></label>
+                                <input id="doc_psw" type="password" placeholder="Enter Password" name="psw" required>
+                            </div>
+                            <button type="button" class="btn btn-success" id="doctor_login">Login</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: relative">
+        <p style="position: fixed; bottom: 0; width:100%; text-align: center">Created by Cooper Gill, Maxim Sutherland and Joe Wreford</p>
+    </div>
+
+    <script src="frontendclasses.js"></script>
+    <script src="login_mvc.js"></script>
+    <script src="main_mvc.js"></script>
+</body>
+</html>

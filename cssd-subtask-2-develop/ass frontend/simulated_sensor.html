@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <title>Simulated Sensor Page</title>
+</head>
+
+<body id="simulated_sensor">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <div class="col-sm-2"></div>
+        <div class="d-inline-flex">
+            <span class="navbar-brand mr-auto" href="#">E-Health System</span>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Alerts</a>
+                </li>
+                <li class="nav-item">
+                    <a hidden id="add-data-link" class="nav-link" href="inputdata.html">Add Data</a>
+                </li>
+                <li class="nav-item">
+                    <a id="history-link" class="nav-link" href="history.html">Health History</a>
+                </li>
+                <li class="nav-item active">
+                    <a hidden id="sensor-link" class="nav-link" href="simulated_sensor.html">Simulated Sensor</a>
+                </li>
+            </ul>
+            <button type="button" id="logout_btn" class="btn btn-danger" style="position:absolute; right:5px; top:5px;">Logout</button>
+            <form hidden id="search-bar" class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </nav>
+
+    <div class="container">
+        <form id="input-form">
+            <div class="form-group">
+                <label for="usr">Select Health Data Type</label>
+                <select id="selector" class="form-control">
+                    <option value="0">Beats Per Minute</option>
+                    <option value="1">Systolic Pressure</option>
+                    <option value="2">Diasystolic Pressure</option>
+                    <option value="3">Steps</option>
+                    <option value="4">Distance Travelled</option>
+                    <option value="5">Time Slept</option>
+                    <option value="6">Calories Burnt</option>
+                </select>
+            </div>
+            <div>
+                <button type="button" class="btn btn-success" id="generate_btn">Generate Data</button>
+                <button style="padding-top:2px; display:none" type="button" class="btn btn-danger" id="stop_btn">Stop Generating Data</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <div style="position: relative">
+        <p style="position: fixed; bottom: 0; width:100%; text-align: center">Created by Cooper Gill, Maxim Sutherland and Joe Wreford</p>
+    </div>
+
+    <script src="frontendclasses.js"></script>
+    <script src="simulated_sensor.js"></script>
+    <script src="main_mvc.js"></script>
+</body>
+</html>
